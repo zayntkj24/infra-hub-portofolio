@@ -9,15 +9,6 @@ export interface CategoryDef {
 
 export const CATEGORIES: CategoryDef[] = [
   {
-    slug: "aws",
-    name: "AWS",
-    tagline: "Cloud infrastructure on Amazon Web Services",
-    subcategories: [
-      "VPC", "EC2", "RDS", "IAM", "Route Table", "NAT Gateway",
-      "Internet Gateway", "Security Group", "S3", "Load Balancer", "CloudWatch",
-    ],
-  },
-  {
     slug: "linux",
     name: "Linux",
     tagline: "Server administration and services",
