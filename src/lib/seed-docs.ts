@@ -13,7 +13,7 @@ import sshMd            from "../docs/linux/ssh.md?raw";
 import dockerMd         from "../docs/linux/docker.md?raw";
 import sambaMd          from "../docs/linux/samba.md?raw";
 import ftpMd            from "../docs/linux/ftp.md?raw";
-import dnsMd            from "../docs/linux/dns.md?raw";
+import powerdnsMd       from "../docs/linux/pdns.md?raw";
 import dhcpLinuxMd      from "../docs/linux/dhcp.md?raw";
 import monitoringMd     from "../docs/linux/monitoring.md?raw";
 import firewallLinuxMd  from "../docs/linux/firewall.md?raw";
