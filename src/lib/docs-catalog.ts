@@ -14,7 +14,7 @@ export const CATEGORIES: CategoryDef[] = [
     tagline: "Server administration and services",
     subcategories: [
       "Nginx", "Apache", "SSH", "Docker", "Samba",
-      "FTP", "DNS", "DHCP", "Monitoring", "Firewall",
+      "FTP", "PowerDNS", "DHCP", "Monitoring", "Firewall",
     ],
   },
   {
