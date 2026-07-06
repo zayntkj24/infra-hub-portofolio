@@ -11,6 +11,7 @@ PowerDNS adalah perangkat lunak Domain Name System (DNS) open-source tingkat lan
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+Fungsi :
 Memastikan sistem menggunakan paket terbaru, mendapatkan update keamanan, dan mengurangi kemungkinan konflik saat proses instalasi software seperti PowerDNS, MariaDB, atau Apache.
 
 ## Step 2 — Install paket curl dan git
@@ -18,12 +19,16 @@ Memastikan sistem menggunakan paket terbaru, mendapatkan update keamanan, dan me
 ```bash
 sudo apt install curl git
 ```
+Fungsi :
+Menyiapkan tools yang dibutuhkan untuk mengambil repository, mengunduh file konfigurasi, atau melakukan instalasi software dari sumber eksternal seperti repository resmi PowerDNS.
 
 ## Step 3 — Menambah repository powerdns (Ubuntu 24.04)
 
 ```bash
 echo "deb [signed-by=/etc/apt/keyrings/auth-51-pub.asc] http://repo.powerdns.com/ubuntu noble-auth-51 main" | sudo tee /etc/apt/sources.list.d/pdns.list
 ```
+Fungsi: 
+Menambahkan repository resmi PowerDNS ke daftar sumber paket APT Ubuntu agar sistem dapat menginstall dan mendapatkan update PowerDNS dari repository tersebut.
 
 ## Step 4 — Mengatur prioritas sumber paket APT
 
@@ -37,12 +42,18 @@ Pin-Priority: 600
 EOF
 ```
 
+Fungsi: 
+Membuat konfigurasi APT Pinning untuk memberikan prioritas lebih tinggi kepada paket PowerDNS yang berasal dari repository resmi repo.powerdns.com.
+
 ## Step 5 — Mendaftarkan repositori resmi PowerDNS
 
 ```bash
 sudo install -d /etc/apt/keyrings
 curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo tee /etc/apt/keyrings/auth-51-pub.asc
 ```
+
+Fungsi:
+Membuat direktori penyimpanan GPG key APT dan mengunduh kunci publik PowerDNS untuk memverifikasi keaslian paket dari repository resmi PowerDNS.
 
 ## Step 6 — Install Mysql Server (mariadb)
 
