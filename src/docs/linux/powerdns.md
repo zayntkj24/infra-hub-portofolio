@@ -1,102 +1,65 @@
-# DNS — Linux
+# Installasi PowerDNS
 
-> Konfigurasi **BIND9** sebagai DNS Server in Ubuntu/Debian for local networks maupun publik.
+> Konfigurasi **PowerDNS** sebagai DNS Server in Ubuntu/Debian for local networks maupun publik.
 
 ## Overview
 
-BIND9 adalah implementasi DNS paling banyak used. This guide covers setup DNS resolver and authoritative DNS untuk domain internal.
+PowerDNS adalah perangkat lunak Domain Name System (DNS) open-source tingkat lanjut yang berfungsi untuk mengelola dan menerjemahkan nama domain ke alamat IP dengan cepat. Perangkat lunak ini sangat populer di kalangan penyedia layanan cloud, hosting, dan operator jaringan skala besar karena skalabilitas dan keamanannya.
 
-## Step 1 — Instalasi
-
-```bash
-sudo apt update
-sudo apt install bind9 bind9utils bind9-doc -y
-sudo systemctl enable named
-```
-
-## Step 2 — Konfigurasi DNS Resolver Lokal
-
-Edit `/etc/bind/named.conf.options`:
+## Step 1 — Update System
 
 ```bash
-sudo nano /etc/bind/named.conf.options
+sudo apt update && sudo apt upgrade -y
 ```
 
-```
-options {
-    directory "/var/cache/bind";
-
-    # Izinkan query dari jaringan lokal
-    allow-query { localhost; 192.168.1.0/24; };
-
-    # Forwarders ke DNS publik
-    forwarders {
-        8.8.8.8;
-        8.8.4.4;
-        1.1.1.1;
-    };
-
-    forward only;
-    dnssec-validation auto;
-    listen-on { any; };
-};
-```
-
-## Step 3 — Zona DNS Internal
-
-Add a zone to `/etc/bind/named.conf.local`:
-
-```
-zone "lan.example.com" {
-    type master;
-    file "/etc/bind/zones/db.lan.example.com";
-};
-
-zone "1.168.192.in-addr.arpa" {
-    type master;
-    file "/etc/bind/zones/db.192.168.1";
-};
-```
-
-Buat file zona forward:
+## Step 2 — Install paket curl dan git
 
 ```bash
-sudo mkdir -p /etc/bind/zones
-sudo nano /etc/bind/zones/db.lan.example.com
+sudo apt install curl git
 ```
 
-```dns
-$TTL    604800
-@       IN  SOA ns1.lan.example.com. admin.lan.example.com. (
-                2024010101  ; Serial
-                604800      ; Refresh
-                86400       ; Retry
-                2419200     ; Expire
-                604800 )    ; Negative Cache TTL
-
-@       IN  NS  ns1.lan.example.com.
-ns1     IN  A   192.168.1.10
-server1 IN  A   192.168.1.20
-router  IN  A   192.168.1.1
-```
-
-## Step 4 — Restart and Test
+## Step 3 — Menambah repository powerdns (Ubuntu 24.04)
 
 ```bash
-sudo named-checkconf
-sudo named-checkzone lan.example.com /etc/bind/zones/db.lan.example.com
-sudo systemctl restart named
-
-# Test
-dig @192.168.1.10 server1.lan.example.com
-nslookup server1.lan.example.com 192.168.1.10
+echo "deb [signed-by=/etc/apt/keyrings/auth-51-pub.asc] http://repo.powerdns.com/ubuntu noble-auth-51 main" | sudo tee /etc/apt/sources.list.d/pdns.list
 ```
 
-## Troubleshooting
+## Step 4 — Mengatur prioritas sumber paket APT
 
-| Symptom | Cause | Fix |
-|---|---|---|
-| SERVFAIL | Zone configuration is incorrect | `named-checkzone` |
-| REFUSED | IP is not in allow-query | Addkan IP to `allow-query` |
-| Service gagal start | Syntax error | `named-checkconf` |
-| NXDOMAIN | Record does not exist | Check the contents of file zona |
+```bash
+sudo mkdir -p /etc/apt/preferences.d/
+
+cat <<EOF | sudo tee /etc/apt/preferences.d/auth-51
+Package: pdns-*
+Pin: origin repo.powerdns.com
+Pin-Priority: 600
+EOF
+```
+
+## Step 5 — Mendaftarkan repositori resmi PowerDNS
+
+```bash
+sudo install -d /etc/apt/keyrings
+curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo tee /etc/apt/keyrings/auth-51-pub.asc
+```
+
+## Step 6 — Install Mysql Server (mariadb)
+
+```bash
+sudo apt install mariadb-server
+```
+
+## Step 7 — Install PowerDNS
+
+```bash
+sudo apt install pdns-server pdns-backend-mysql
+```
+#
+
+## Step 8 — Install Apache dan php library
+
+```bash
+sudo apt install apache2 php php-mysql php-intl php-xml php-mbstring libapache2-mod-php -y
+```
+
+## Step 9 — Install Apache dan php library
