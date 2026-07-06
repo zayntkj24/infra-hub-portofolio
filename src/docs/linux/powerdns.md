@@ -76,3 +76,60 @@ sudo apt install apache2 php php-mysql php-intl php-xml php-mbstring libapache2-
 
 ## Step 9 — Membuat database di mariadb-server
 
+```bash
+sudo mysql -u root
+```
+
+Buat database
+
+```bash
+CREATE DATABASE powerdns;
+```
+
+Buat username dan password
+
+```bash
+CREATE USER 'powerdns'@'localhost' IDENTIFIED BY 'AbelXO';
+```
+
+Beri hak akses control
+
+```bash
+GRANT ALL PRIVILEGES ON powerdns.* TO 'powerdns'@'localhost';
+```
+
+Memperbarui (refresh) hak akses
+
+```bash
+FLUSH PRIVILEGES;
+```
+
+Keluar dari mariadb
+
+```bash
+EXIT;
+```
+
+## Step 10 - Memasukkan (import) struktur tabel
+
+```bash
+sudo mysql powerdns < /usr/share/doc/pdns-backend-mysql/schema.mysql.sql
+```
+
+## Step 11 - Mengkonfigurasi file **/etc/powerdns/pdns.conf**
+
+```bash
+sudo nano /etc/powerdns/pdns.conf
+```
+
+Isi konfigurasi
+
+```bash
+launch=gmysql
+
+gmysql-host=127.0.0.1
+gmysql-port=3306
+gmysql-dbname=powerdns
+gmysql-user=powerdns
+gmysql-password=AbelXO
+```
