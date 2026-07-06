@@ -59,23 +59,10 @@ const DOC_MAP: Record<string, string> = {
   "linux/docker":     dockerMd,
   "linux/samba":      sambaMd,
   "linux/ftp":        ftpMd,
-  "linux/dns":        dnsMd,
+  "linux/pdns":       pdnsMd,
   "linux/dhcp":       dhcpLinuxMd,
   "linux/monitoring": monitoringMd,
   "linux/firewall":   firewallLinuxMd,
-
-  // AWS
-  "aws/vpc":              vpcMd,
-  "aws/ec2":              ec2Md,
-  "aws/rds":              rdsMd,
-  "aws/iam":              iamMd,
-  "aws/route-table":      routeTableMd,
-  "aws/nat-gateway":      natGatewayMd,
-  "aws/internet-gateway": internetGwMd,
-  "aws/security-group":   securityGroupMd,
-  "aws/s3":               s3Md,
-  "aws/load-balancer":    lbMd,
-  "aws/cloudwatch":       cloudwatchMd,
 
   // MikroTik
   "mikrotik/hotspot":     hotspotMd,
