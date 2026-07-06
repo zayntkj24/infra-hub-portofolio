@@ -11,6 +11,7 @@ PowerDNS adalah perangkat lunak Domain Name System (DNS) open-source tingkat lan
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+Memastikan sistem menggunakan paket terbaru, mendapatkan update keamanan, dan mengurangi kemungkinan konflik saat proses instalasi software seperti PowerDNS, MariaDB, atau Apache.
 
 ## Step 2 — Install paket curl dan git
 
