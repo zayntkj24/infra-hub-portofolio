@@ -59,7 +59,7 @@ const DOC_MAP: Record<string, string> = {
   "linux/docker":     dockerMd,
   "linux/samba":      sambaMd,
   "linux/ftp":        ftpMd,
-  "linux/pdns":       pdnsMd,
+  "linux/pdns":       powerdnsMd,
   "linux/dhcp":       dhcpLinuxMd,
   "linux/monitoring": monitoringMd,
   "linux/firewall":   firewallLinuxMd,
