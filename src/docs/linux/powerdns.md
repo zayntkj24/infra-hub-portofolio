@@ -74,4 +74,5 @@ sudo apt install pdns-server pdns-backend-mysql
 sudo apt install apache2 php php-mysql php-intl php-xml php-mbstring libapache2-mod-php -y
 ```
 
-## Step 9 — Install Apache dan php library
+## Step 9 — Membuat database di mariadb-server
+
