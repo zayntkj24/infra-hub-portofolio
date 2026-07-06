@@ -18,19 +18,6 @@ import dhcpLinuxMd      from "../docs/linux/dhcp.md?raw";
 import monitoringMd     from "../docs/linux/monitoring.md?raw";
 import firewallLinuxMd  from "../docs/linux/firewall.md?raw";
 
-// ── AWS ───────────────────────────────────────────────────────────────────
-import vpcMd            from "../docs/aws/vpc.md?raw";
-import ec2Md            from "../docs/aws/ec2.md?raw";
-import rdsMd            from "../docs/aws/rds.md?raw";
-import iamMd            from "../docs/aws/iam.md?raw";
-import routeTableMd     from "../docs/aws/route-table.md?raw";
-import natGatewayMd     from "../docs/aws/nat-gateway.md?raw";
-import internetGwMd     from "../docs/aws/internet-gateway.md?raw";
-import securityGroupMd  from "../docs/aws/security-group.md?raw";
-import s3Md             from "../docs/aws/s3.md?raw";
-import lbMd             from "../docs/aws/load-balancer.md?raw";
-import cloudwatchMd     from "../docs/aws/cloudwatch.md?raw";
-
 // ── MikroTik ──────────────────────────────────────────────────────────────
 import hotspotMd        from "../docs/mikrotik/hotspot.md?raw";
 import queueMd          from "../docs/mikrotik/queue.md?raw";
