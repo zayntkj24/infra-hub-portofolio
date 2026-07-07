@@ -287,7 +287,7 @@ menjadi AllowOverride All
 ```
 
 Lalu Save file
-> **CTRL+X**
+**CTRL+X**
 
 ```bash
  Save modified buffer?                                                                                                
