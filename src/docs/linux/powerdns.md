@@ -238,3 +238,51 @@ sudo systemctl restart apache2
 Buka web browser Edge dan ketik **http://192.168.220.128/poweradmin/**
 
 ![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/1pdns.png)
+
+Memilih bahasa utama poweradmin, pilih bahasa Indonesia
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/2pdns.png)
+
+System requirement poweradmin
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/2pdns.png)
+
+Jika pada saat setup Poweradmin di web browser muncul error atau peringatan seperti ini:
+> **mod rewrite : Not Detected - Required for URL routing**
+
+Ikuti langkah-langkah berikut untuk mengaktifkannya di server Apache:
+
+Aktifkan modul rewrite di Apache
+
+Jalankan perintah ini di terminal untuk mengaktifkan modul `mod_rewrite`:
+
+```bash
+sudo a2enmod rewrite
+```
+
+Mengubah konfigurasi AllowOverride Apache2 file /etc/apache2/apache2.conf
+
+```bash
+sudo nano /etc/apache2/apache2.conf
+```
+
+Ubah bagian AllowOverride none
+
+```bash
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride none
+        Require all granted
+</Directory>
+```
+
+menjadi AllowOverride All
+
+```bash
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+```
+
