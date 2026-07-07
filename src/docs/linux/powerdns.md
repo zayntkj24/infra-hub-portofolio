@@ -234,4 +234,6 @@ dan restart layanan apache2
 sudo systemctl restart apache2
 ```
 
-## Step 17 - Mengatur hak kepemilikan dan hak akses file web Poweradmin
+## Step 17 - Mengsetup Poweradmin di web browser
+<h1 align="center"> Buka web browser Edge dan ketik **//http://192.168.220.128/poweradmin/**// </h1>
+<p align="center"> <img src="https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/macbook.png"/> </p>
