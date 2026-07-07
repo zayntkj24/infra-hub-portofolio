@@ -7,7 +7,7 @@
 import { CATEGORIES, slugify } from "./docs-catalog";
 
 // ── Linux ──────────────────────────────────────────────────────────────────
-import nginxMd          from "../docs/linux/nginx.md?raw";
+import zabbixMd          from "../docs/linux/zabbix.md?raw";
 import apacheMd         from "../docs/linux/apache.md?raw";
 import sshMd            from "../docs/linux/ssh.md?raw";
 import dockerMd         from "../docs/linux/docker.md?raw";
@@ -53,7 +53,7 @@ export interface SeedDoc {
 // Map: "category/slug" → markdown string
 const DOC_MAP: Record<string, string> = {
   // Linux
-  "linux/nginx":      nginxMd,
+  "linux/zabbix":     zabbixMd,
   "linux/apache":     apacheMd,
   "linux/ssh":        sshMd,
   "linux/docker":     dockerMd,
