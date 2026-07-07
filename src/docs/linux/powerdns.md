@@ -369,3 +369,20 @@ Query OK, 0 rows affected (0.001 sec)
 MariaDB [(none)]> EXIT;
 Bye
 ```
+
+Buat konfigurasi file settings.php
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/7pdns.png)
+
+Masuk ke file poweradmin
+
+```bash
+cd /var/www/html/poweradmin
+```
+
+lalu edit dan tambah file settings.php di direktori config
+
+```bash
+sudo nano config/settings.php
+```
+
