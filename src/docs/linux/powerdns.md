@@ -521,5 +521,5 @@ Hasil konfigurasi dan menambah subdomain
 
 ![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/17pdns.png)
 
-> Klik tombol berwarna biru (Apply), lalu save konfigurasi (tombol berwarna biru)
+> Klik tombol berwarna biru (Apply), lalu save konfigurasi dengan cara mengklik tombol berwarna biru (Save changes)
 
