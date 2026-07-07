@@ -27,7 +27,7 @@ Menyiapkan tools yang dibutuhkan untuk mengambil repository, mengunduh file konf
 ```bash
 echo "deb [signed-by=/etc/apt/keyrings/auth-51-pub.asc] http://repo.powerdns.com/ubuntu noble-auth-51 main" | sudo tee /etc/apt/sources.list.d/pdns.list
 ```
-Fungsi: 
+Fungsi : 
 Menambahkan repository resmi PowerDNS ke daftar sumber paket APT Ubuntu agar sistem dapat menginstall dan mendapatkan update PowerDNS dari repository tersebut.
 
 ## Step 4 — Mengatur prioritas sumber paket APT
@@ -42,7 +42,7 @@ Pin-Priority: 600
 EOF
 ```
 
-Fungsi: 
+Fungsi : 
 Membuat konfigurasi APT Pinning untuk memberikan prioritas lebih tinggi kepada paket PowerDNS yang berasal dari repository resmi repo.powerdns.com.
 
 ## Step 5 — Mendaftarkan repositori resmi PowerDNS
@@ -52,7 +52,7 @@ sudo install -d /etc/apt/keyrings
 curl -fsSL https://repo.powerdns.com/FD380FBB-pub.asc | sudo tee /etc/apt/keyrings/auth-51-pub.asc
 ```
 
-Fungsi:
+Fungsi :
 Membuat direktori penyimpanan GPG key APT dan mengunduh kunci publik PowerDNS untuk memverifikasi keaslian paket dari repository resmi PowerDNS.
 
 ## Step 6 — Install Mysql Server (mariadb)
@@ -61,18 +61,25 @@ Membuat direktori penyimpanan GPG key APT dan mengunduh kunci publik PowerDNS un
 sudo apt install mariadb-server
 ```
 
+Fungsi :
+Sebagai sistem manajemen basis data relasional (RDBMS) yang mengelola, menyimpan, dan menyajikan data terstruktur dalam jumlah besar
+
 ## Step 7 — Install PowerDNS
 
 ```bash
 sudo apt install pdns-server pdns-backend-mysql
 ```
-#
+Fungsi :
+Menginstal aplikasi PowerDNS dan modul penghubungnya ke database MySQL/MariaDB di sistem operasi berbasis Ubuntu.
 
 ## Step 8 — Install Apache dan php library
 
 ```bash
 sudo apt install apache2 php php-mysql php-intl php-xml php-mbstring libapache2-mod-php -y
 ```
+
+Fungsi :
+Menginstal LAMP Stack (Linux, Apache, PHP) versi standar tanpa database servernya
 
 ## Step 9 — Membuat database di mariadb-server
 
@@ -115,6 +122,9 @@ EXIT;
 ```bash
 sudo mysql powerdns < /usr/share/doc/pdns-backend-mysql/schema.mysql.sql
 ```
+
+Fungsi : 
+Memasukkan struktur tabel default PowerDNS ke dalam database MySQL bernama powerdns
 
 ## Step 11 - Mengkonfigurasi file **/etc/powerdns/pdns.conf**
 
