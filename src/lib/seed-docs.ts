@@ -53,16 +53,16 @@ export interface SeedDoc {
 // Map: "category/slug" → markdown string
 const DOC_MAP: Record<string, string> = {
   // Linux
-  "linux/zabbix":     zabbixMd,
+  "linux/zabbix":      zabbixMd,
   "linux/mail-server": mailserverMd,
-  "linux/ssh":        sshMd,
-  "linux/docker":     dockerMd,
-  "linux/samba":      sambaMd,
-  "linux/ftp":        ftpMd,
-  "linux/powerdns":   powerdnsMd,
-  "linux/dhcp":       dhcpLinuxMd,
-  "linux/monitoring": monitoringMd,
-  "linux/firewall":   firewallLinuxMd,
+  "linux/ssh":         sshMd,
+  "linux/docker":      dockerMd,
+  "linux/samba":       sambaMd,
+  "linux/ftp":         ftpMd,
+  "linux/powerdns":    powerdnsMd,
+  "linux/dhcp":        dhcpLinuxMd,
+  "linux/monitoring":  monitoringMd,
+  "linux/firewall":    firewallLinuxMd,
 
   // MikroTik
   "mikrotik/hotspot":     hotspotMd,
