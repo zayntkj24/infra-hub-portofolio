@@ -498,3 +498,28 @@ Hasil menambah domain **nanda24.com**
 lalu klik tombol Add master zone
 
 ![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/14(1)pdns.png)
+
+Klik dan edit zona **nanda24.com** dan record untuk membuat subdomain
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/15pdns.png)
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/16pdns.png)
+
+```bash
+Klik Add another record untuk menambah subdomain
+NAME          TYPE     Content            Priority     TTL
+Kosongkan     A        192.168.220.128    0            3600
+ns1           A        192.168.220.128    0            3600
+mail          A        192.168.220.128    0            3600
+Kosongkan     NS       ns1.nanda24.com    0            3600
+Kosongkan     MX       mail.nanda24.com   0            10
+```
+
+> Lalu Klik tombol berwarna biru (Add records)
+
+Hasil konfigurasi dan menambah subdomain
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/17pdns.png)
+
+> Klik tombol berwarna biru (Apply), lalu save konfigurasi (tombol berwarna biru)
+
