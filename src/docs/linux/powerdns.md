@@ -491,3 +491,10 @@ Group Ownership : Administrator
 
 > Lalu klik tombol berwarna biru (Add zone)
 
+Hasil menambah domain **nanda24.com**
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/14pdns.png)
+
+lalu klik tombol Add master zone
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/14(1)pdns.png)
