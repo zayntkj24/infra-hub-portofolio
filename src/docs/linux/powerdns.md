@@ -523,3 +523,140 @@ Hasil konfigurasi dan menambah subdomain
 
 > Klik tombol berwarna biru (Apply), lalu save konfigurasi dengan cara mengklik tombol berwarna biru (Save changes)
 
+## Step 19 - Konfigurasi resolvectl di Ubuntu Server 24.04
+
+Konfigurasi file /etc/systemd/resolved.conf
+
+Perintah :
+
+```bash
+sudo nano /etc/systemd/resolved.conf
+```
+
+Uncomment barisan DNS dan FallbackDNS
+
+```bash
+[Resolve]
+#DNS=
+#FallbackDNS=
+```
+
+menjadi
+
+```bash
+[Resolve]
+DNS=127.0.0.1 1.1.1.1 8.8.8.8
+FallbackDNS=1.1.1.1 8.8.8.8
+```
+
+Lalu Save file
+**CTRL+X**
+
+```bash
+ Save modified buffer?                                                                                                
+ Y Yes
+ N No           C Cancel
+```
+ 
+> Klik Tombol Y dan enter
+
+Restart layanan systemd-resolved
+
+Perintah :
+
+```bash
+sudo systemctl restart systemd-resolved
+```
+
+## Step 20 - Mengecek zona DNS di PowerDNS
+
+Masukan perintah
+
+```bash
+sudo pdnsutil list-all-zones
+sudo pdnsutil list-zone nanda24.com
+```
+
+Hasil Perintah
+
+```bash
+Jul 07 22:18:32 [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+nanda24.com
+Jul 07 22:18:32 [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+$ORIGIN .
+mail.nanda24.com.       3600    IN      A       192.168.220.128
+nanda24.com.    3600    IN      A       192.168.220.128
+nanda24.com.    10      IN      MX      0 mail.nanda24.com.
+nanda24.com.    3600    IN      NS      ns1.nanda24.com.
+nanda24.com.    86400   IN      SOA     dns1.nanda24.com. www.nanda24.com. 2026070707 28800 7200 604800 86400
+ns1.nanda24.com.        3600    IN      A       192.168.220.128
+```
+
+## Step 21 - Lakukan ping domain yang telah dibuat
+
+Ping domain nanda24.com di terminal ubuntu
+ 
+```bash
+ping nanda24.com
+```
+
+```bash
+PING nanda24.com (192.168.220.128) 56(84) bytes of data.
+64 bytes from 192.168.220.128: icmp_seq=1 ttl=64 time=0.028 ms
+64 bytes from 192.168.220.128: icmp_seq=2 ttl=64 time=0.103 ms
+64 bytes from 192.168.220.128: icmp_seq=3 ttl=64 time=0.032 ms
+64 bytes from 192.168.220.128: icmp_seq=4 ttl=64 time=0.038 ms
+--- nanda24.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3060ms
+rtt min/avg/max/mdev = 0.028/0.050/0.103/0.030 ms
+```
+
+> Domain nanda24.com berhasil di ping
+
+Ping domain mail.nanda24.com
+
+```bash
+ping mail.nanda24.com
+```
+
+```bash
+PING mail.nanda24.com (192.168.220.128) 56(84) bytes of data.
+64 bytes from 192.168.220.128: icmp_seq=1 ttl=64 time=0.010 ms
+64 bytes from 192.168.220.128: icmp_seq=2 ttl=64 time=0.031 ms
+64 bytes from 192.168.220.128: icmp_seq=3 ttl=64 time=0.031 ms
+64 bytes from 192.168.220.128: icmp_seq=4 ttl=64 time=0.033 ms
+--- mail.nanda24.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3055ms
+rtt min/avg/max/mdev = 0.010/0.026/0.033/0.009 ms
+```
+
+> Domain mail.nanda24.com berhasil di ping
+
+# Kesimpulan
+
+Berdasarkan proses instalasi dan konfigurasi yang telah dilakukan, PowerDNS berhasil diimplementasikan sebagai DNS Authoritative Server pada sistem operasi Ubuntu Server 24.04 LTS dengan menggunakan MariaDB sebagai database backend untuk menyimpan data zona dan record DNS. Proses instalasi mulai dari penambahan repository, konfigurasi database, pengaturan layanan PowerDNS, hingga integrasi dengan Poweradmin telah berhasil dilakukan sehingga sistem DNS dapat dikelola dengan lebih mudah melalui tampilan web.
+
+Poweradmin berhasil dikonfigurasi sebagai web management untuk PowerDNS, sehingga proses pembuatan dan pengelolaan zona DNS tidak perlu dilakukan secara manual melalui database. Dengan adanya Poweradmin, administrator dapat membuat domain, menambahkan record DNS seperti A Record, NS Record, dan MX Record, serta melakukan pengaturan zona dengan lebih cepat dan terstruktur.
+
+Pada tahap pengujian, zona DNS `nanda24.com` berhasil dibuat dan dikonfigurasi dengan subdomain `mail.nanda24.com`. Hasil pengecekan menggunakan perintah `pdnsutil` menunjukkan bahwa PowerDNS telah berhasil membaca zona beserta seluruh record yang telah dibuat. Pengujian menggunakan `dig` dan `ping` juga menunjukkan bahwa proses resolusi domain lokal berjalan dengan baik, dimana domain `nanda24.com` dan `mail.nanda24.com` berhasil diarahkan ke alamat IP server yang telah ditentukan.
+
+Dengan selesainya konfigurasi ini, server telah memiliki layanan DNS yang berjalan dengan baik dan dapat menjadi dasar untuk membangun layanan jaringan lainnya. Konfigurasi PowerDNS ini dapat dikembangkan lebih lanjut untuk kebutuhan publik dengan menambahkan konfigurasi nameserver, keamanan DNS, serta integrasi dengan layanan seperti mail server menggunakan Postfix, Dovecot, dan Roundcube.
+
+Implementasi PowerDNS dan Poweradmin ini memberikan pemahaman mengenai cara kerja DNS Server, pengelolaan zona domain, pembuatan subdomain, serta integrasi antara layanan database, web server, dan sistem jaringan pada lingkungan Ubuntu Server 24.04 LTS.
+---
+
+# Referensi
+
+- PowerDNS Documentation — https://doc.powerdns.com/
+- Poweradmin GitHub — https://github.com/poweradmin/poweradmin
+
+---
+
+# Penulis
+
+**Disusun oleh**
+
+**Nanda Khalif Akbar**  
+SMK Wikrama Bogor  
+Teknik Jaringan Komputer dan Telekomunikasi (TJKT)  
+Tahun 2026
