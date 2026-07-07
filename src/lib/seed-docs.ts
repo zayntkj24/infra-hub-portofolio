@@ -8,7 +8,7 @@ import { CATEGORIES, slugify } from "./docs-catalog";
 
 // ── Linux ──────────────────────────────────────────────────────────────────
 import zabbixMd         from "../docs/linux/zabbix.md?raw";
-import mailserverMd     from "../docs/linux/mailserver.md?raw";
+import mailserverMd     from "../docs/linux/mail-server.md?raw";
 import sshMd            from "../docs/linux/ssh.md?raw";
 import dockerMd         from "../docs/linux/docker.md?raw";
 import sambaMd          from "../docs/linux/samba.md?raw";
@@ -54,7 +54,7 @@ export interface SeedDoc {
 const DOC_MAP: Record<string, string> = {
   // Linux
   "linux/zabbix":     zabbixMd,
-  "linux/mailserver": mailserverMd,
+  "linux/mail-server": mailserverMd,
   "linux/ssh":        sshMd,
   "linux/docker":     dockerMd,
   "linux/samba":      sambaMd,
