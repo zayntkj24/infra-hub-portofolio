@@ -297,3 +297,21 @@ Lalu Save file
  
 > Klik Tombol Y dan enter
 
+Mengkonfigurasi koneksi database
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/4pdns.png)
+
+> Untuk mengisi database, perlu disesuaikan dengan pembuatan database powerdns pada sebelumnya!
+
+```bash
+Database type              : Pilih opsi MySQL
+Nama Pengguna              : powerdns
+DBSSEC dinonaktifkan       : AbelXO
+Nama Host                  : localhost
+DB Port                    : 3306
+Basis Data                 : powerdns
+
+Poweradmin Account
+Administrator password     : Nanda_123 (untuk login web poweradmin)
+```
+
