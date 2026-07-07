@@ -237,4 +237,4 @@ sudo systemctl restart apache2
 ## Step 17 - Mengsetup Poweradmin di web browser
 Buka web browser Edge dan ketik **http://192.168.220.128/poweradmin/**
 
-![Macbook Preview](https://raw.githubusercontent.com/vinceliuice/WhiteSur-gtk-theme/pictures/pictures/macbook.png)
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/1pdns.png)
