@@ -466,8 +466,7 @@ Masuk tampilan login web poweradmin
 ![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/10pdns.png)
 
 > Untuk username dan pasword
-> username : admin
-> password : Nanda_123
+> username : admin dan password : Nanda_123
 
 Tampilan dashboard web Poweradmin
 
