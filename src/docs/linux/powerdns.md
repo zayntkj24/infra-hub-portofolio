@@ -457,3 +457,7 @@ masukan perintah untuk menghapus direktori install
 sudo rm -rf install
 ```
 
+Refresh browser dan masuk ke **http://192.168.220.128/poweradmin/**
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/9(1)pdns.png)
+
