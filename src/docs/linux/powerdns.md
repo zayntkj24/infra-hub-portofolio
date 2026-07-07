@@ -333,6 +333,9 @@ Secondary nameserver       : dns2.nanda24.com
 ```
 
 Konfigurasi dan menambah database poweradmin
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/6pdns.png)
+
 Masukan perintah
 
 ```bash
