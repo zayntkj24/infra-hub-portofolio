@@ -235,5 +235,6 @@ sudo systemctl restart apache2
 ```
 
 ## Step 17 - Mengsetup Poweradmin di web browser
-<h1 align="center"> Buka web browser Edge dan ketik **//http://192.168.220.128/poweradmin/**// </h1>
-<p align="center"> <img src="https://github.com/vinceliuice/WhiteSur-gtk-theme/blob/pictures/pictures/macbook.png"/> </p>
+Buka web browser Edge dan ketik **http://192.168.220.128/poweradmin/**
+
+![Macbook Preview](https://raw.githubusercontent.com/vinceliuice/WhiteSur-gtk-theme/pictures/pictures/macbook.png)
