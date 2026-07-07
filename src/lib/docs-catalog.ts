@@ -13,7 +13,7 @@ export const CATEGORIES: CategoryDef[] = [
     name: "Linux",
     tagline: "Server administration and services",
     subcategories: [
-      "Nginx", "Apache", "SSH", "Docker", "Samba",
+      "Zabbix", "Apache", "SSH", "Docker", "Samba",
       "FTP", "PowerDNS", "DHCP", "Monitoring", "Firewall",
     ],
   },
