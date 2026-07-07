@@ -9,14 +9,8 @@ import { CATEGORIES, slugify } from "./docs-catalog";
 // ── Linux ──────────────────────────────────────────────────────────────────
 import zabbixMd         from "../docs/linux/zabbix.md?raw";
 import mailserverMd     from "../docs/linux/mail-server.md?raw";
-import sshMd            from "../docs/linux/ssh.md?raw";
 import dockerMd         from "../docs/linux/docker.md?raw";
-import sambaMd          from "../docs/linux/samba.md?raw";
-import ftpMd            from "../docs/linux/ftp.md?raw";
 import powerdnsMd       from "../docs/linux/powerdns.md?raw";
-import dhcpLinuxMd      from "../docs/linux/dhcp.md?raw";
-import monitoringMd     from "../docs/linux/monitoring.md?raw";
-import firewallLinuxMd  from "../docs/linux/firewall.md?raw";
 
 // ── MikroTik ──────────────────────────────────────────────────────────────
 import hotspotMd        from "../docs/mikrotik/hotspot.md?raw";
@@ -55,15 +49,9 @@ const DOC_MAP: Record<string, string> = {
   // Linux
   "linux/zabbix":      zabbixMd,
   "linux/mail-server": mailserverMd,
-  "linux/ssh":         sshMd,
   "linux/docker":      dockerMd,
-  "linux/samba":       sambaMd,
-  "linux/ftp":         ftpMd,
   "linux/powerdns":    powerdnsMd,
-  "linux/dhcp":        dhcpLinuxMd,
-  "linux/monitoring":  monitoringMd,
-  "linux/firewall":    firewallLinuxMd,
-
+  
   // MikroTik
   "mikrotik/hotspot":     hotspotMd,
   "mikrotik/queue":       queueMd,
