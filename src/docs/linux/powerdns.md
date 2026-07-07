@@ -122,7 +122,7 @@ sudo mysql powerdns < /usr/share/doc/pdns-backend-mysql/schema.mysql.sql
 sudo nano /etc/powerdns/pdns.conf
 ```
 
-Isi konfigurasi
+Lalu klik shortcut CTRL+W lalu cari kata launch, setelah itu Enter
 
 ```bash
 launch=gmysql
@@ -133,3 +133,95 @@ gmysql-dbname=powerdns
 gmysql-user=powerdns
 gmysql-password=AbelXO
 ```
+
+## Step 12 - Mengkonfigurasi file konfigurasi layanan systemd-resolved
+
+```bash
+sudo nano /etc/systemd/resolved.conf
+```
+```bash
+Uncomment #DNSStubListener=yes
+menjadi DNSStubListener=yes
+
+dan juga ubah DNSStubListener=yes
+menjadi DNSStubListener=no
+```
+
+## Step 13 - Restart layanan systemd-resolved
+
+```bash
+sudo systemctl restart systemd-resolved
+```
+
+## Step 14 - Restart dan cek status layanan powerdns
+
+```bash
+sudo systemctl restart pdns
+sudo systemctl status pdns
+```
+
+Log status powerdns harus Running
+
+```bash
+● pdns.service - PowerDNS Authoritative Server
+     Loaded: loaded (/usr/lib/systemd/system/pdns.service; enabled; preset: enabled)
+     Active: active (running) since Mon 2026-07-06 22:13:09 UTC; 2h 2min ago
+       Docs: man:pdns_server(1)
+             man:pdns_control(1)
+             https://doc.powerdns.com
+   Main PID: 23004 (pdns_server)
+      Tasks: 8 (limit: 2205)
+     Memory: 46.8M (peak: 47.2M)
+        CPU: 514ms
+     CGroup: /system.slice/pdns.service
+             └─23004 /usr/sbin/pdns_server --guardian=no --daemon=no --disable-syslog --log-timestamp=no --write-pid>
+
+Jul 06 22:13:09 powerdns pdns_server[23004]: PowerDNS Authoritative Server 5.1.3 (C) PowerDNS.COM BV
+Jul 06 22:13:09 powerdns pdns_server[23004]: Using 64-bits mode. Built using gcc 13.3.0 on Jun 29 2026 17:44:07 by r>
+Jul 06 22:13:09 powerdns pdns_server[23004]: PowerDNS comes with ABSOLUTELY NO WARRANTY. This is free software, and >
+Jul 06 22:13:09 powerdns pdns_server[23004]: Polled security status of version 5.1.3 at startup, no known issues rep>
+Jul 06 22:13:09 powerdns pdns_server[23004]: [bindbackend] Parsing 0 domain(s), will report when done
+Jul 06 22:13:09 powerdns pdns_server[23004]: [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+Jul 06 22:13:09 powerdns pdns_server[23004]: Creating backend connection for TCP
+Jul 06 22:13:09 powerdns pdns_server[23004]: About to create 3 backend threads for UDP
+Jul 06 22:13:09 powerdns systemd[1]: Started pdns.service - PowerDNS Authoritative Server.
+Jul 06 22:13:09 powerdns pdns_server[23004]: Done launching threads, ready to distribute questions
+```
+
+## Step 15 - Masuk direktori /var/www/html
+
+```bash
+cd /var/www/html
+```
+
+Lalu clone repository Poweradmin dari github
+
+```bash
+sudo git clone https://github.com/poweradmin/poweradmin.git
+```
+
+```bash
+Cloning into 'poweradmin'...
+remote: Enumerating objects: 109430, done.
+remote: Counting objects: 100% (313/313), done.
+remote: Compressing objects: 100% (69/69), done.
+remote: Total 109430 (delta 285), reused 244 (delta 244), pack-reused 109117 (from 2)
+Receiving objects: 100% (109430/109430), 243.04 MiB | 4.10 MiB/s, done.
+Resolving deltas: 100% (68501/68501), done.
+Updating files: 100% (10273/10273), done.
+```
+
+## Step 16 - Mengatur hak kepemilikan dan hak akses file web Poweradmin
+
+```bash
+sudo chown -R www-data:www-data /var/www/html/poweradmin
+sudo chmod -R 755 /var/www/html/poweradmin
+```
+
+dan restart layanan apache2
+
+```bash
+sudo systemctl restart apache2
+```
+
+## Step 17 - Mengatur hak kepemilikan dan hak akses file web Poweradmin
