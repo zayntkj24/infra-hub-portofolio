@@ -474,3 +474,20 @@ Tampilan dashboard web Poweradmin
 
 ## Step 18 - Menambah domain dan sub-domain diweb Poweradmin
 
+Klik tombol + Master Zone
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/12pdns.png)
+
+Konfigurasi Zona domain
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/13pdns.png)
+
+```bash
+Zone name       : nanda24.com
+Type            : Master
+User Owner      : Administrator (admin)
+Group Ownership : Administrator
+```
+
+> Lalu klik tombol berwarna biru (Add zone)
+
