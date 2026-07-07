@@ -266,7 +266,6 @@ Mengubah konfigurasi AllowOverride Apache2 file /etc/apache2/apache2.conf
 sudo nano /etc/apache2/apache2.conf
 ```
 
-
 Ubah bagian AllowOverride none
 
 ```bash
@@ -277,7 +276,6 @@ Ubah bagian AllowOverride none
 </Directory>
 ```
 
-
 menjadi AllowOverride All
 
 ```bash
@@ -287,4 +285,11 @@ menjadi AllowOverride All
         Require all granted
 </Directory>
 ```
+
+Lalu Save file
+> **CTRL+X**
+> Save modified buffer?                                                                                                
+ Y Yes
+ N No           ^C Cancel
+> Klik Tombol Y dan enter
 
