@@ -290,6 +290,6 @@ Lalu Save file
 > **CTRL+X**
 > Save modified buffer?                                                                                                
  Y Yes
- N No           ^C Cancel
+ N No           C Cancel
 > Klik Tombol Y dan enter
 
