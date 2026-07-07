@@ -245,7 +245,7 @@ Memilih bahasa utama poweradmin, pilih bahasa Indonesia
 
 System requirement poweradmin
 
-![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/2pdns.png)
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/3pdns.png)
 
 Jika pada saat setup Poweradmin di web browser muncul error atau peringatan seperti ini:
 > **mod rewrite : Not Detected - Required for URL routing**
