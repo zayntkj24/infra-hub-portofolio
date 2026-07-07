@@ -472,26 +472,5 @@ Tampilan dashboard web Poweradmin
 
 ![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/11pdns.png)
 
-# Kesimpulan
+## Step 18 - Menambah domain dan sub-domain diweb Poweradmin
 
-PowerDNS berhasil diinstal dan dikonfigurasi menggunakan backend MariaDB pada sistem operasi Ubuntu Server 24.04 LTS. Dengan tambahan Poweradmin sebagai antarmuka berbasis web, pengelolaan zona DNS dapat dilakukan dengan lebih mudah, efisien, dan terpusat tanpa harus mengedit database maupun file konfigurasi secara manual.
-
-Seluruh layanan telah berjalan dengan baik, meliputi PowerDNS Authoritative Server, MariaDB, Apache2, serta Poweradmin yang dapat diakses melalui web browser.
-
----
-
-# Referensi
-
-- PowerDNS Documentation — https://doc.powerdns.com/
-- Poweradmin GitHub — https://github.com/poweradmin/poweradmin
-
----
-
-# Penulis
-
-**Disusun oleh**
-
-**Nanda Khalif Akbar**  
-SMK Wikrama Bogor  
-Teknik Jaringan Komputer dan Telekomunikasi (TJKT)  
-Tahun 2026
