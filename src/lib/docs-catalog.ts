@@ -1,4 +1,4 @@
-export type CategorySlug = "aws" | "linux" | "mikrotik" | "cisco";
+export type CategorySlug = "linux" | "mikrotik" | "cisco";
 
 export interface CategoryDef {
   slug: CategorySlug;
