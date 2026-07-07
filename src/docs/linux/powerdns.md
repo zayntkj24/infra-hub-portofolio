@@ -315,3 +315,54 @@ Poweradmin Account
 Administrator password     : Nanda_123 (untuk login web poweradmin)
 ```
 
+Setup akun dan domain
+
+![PowerDNS Web Setup](https://raw.githubusercontent.com/zayntkj24/infra-hub-portofolio/main/public/5pdns.png)
+
+> Setup database untuk poweradmin sebagai berikut!
+
+```bash
+Database User
+Nama Pengguna              : poweradmin
+DBSSEC dinonaktifkan       : NandaPower_123
+
+DNS Settings
+Hostmaster                 : www.nanda24.com
+Primary nameserver         : dns1.nanda24.com
+Secondary nameserver       : dns2.nanda24.com
+```
+
+Konfigurasi dan menambah database poweradmin
+Masukan perintah
+
+```bash
+sudo mysql -u root
+```
+
+```bash
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 159
+Server version: 10.11.14-MariaDB-0ubuntu0.24.04.1 Ubuntu 24.04
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE USER 'poweradmin'@'localhost' IDENTIFIED BY 'NandaPower_123';
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> CREATE USER 'poweradmin'@'127.0.0.1' IDENTIFIED BY 'NandaPower_123';
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> GRANT SELECT, INSERT, UPDATE, DELETE ON powerdns.* TO 'poweradmin'@'localhost';
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> GRANT SELECT, INSERT, UPDATE, DELETE ON powerdns.* TO 'poweradmin'@'127.0.0.1';
+Query OK, 0 rows affected (0.003 sec)
+
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> EXIT;
+Bye
+```
