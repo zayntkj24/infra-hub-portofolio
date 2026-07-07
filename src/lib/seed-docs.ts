@@ -7,7 +7,7 @@
 import { CATEGORIES, slugify } from "./docs-catalog";
 
 // ── Linux ──────────────────────────────────────────────────────────────────
-import zabbixMd          from "../docs/linux/zabbix.md?raw";
+import zabbixMd         from "../docs/linux/zabbix.md?raw";
 import apacheMd         from "../docs/linux/apache.md?raw";
 import sshMd            from "../docs/linux/ssh.md?raw";
 import dockerMd         from "../docs/linux/docker.md?raw";
